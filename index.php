@@ -1,11 +1,13 @@
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+
+use Slim\Factory\AppFactory;
+use Slim\Factory\ServerRequestCreatorFactory;
 
 require './vendor/autoload.php';
 
-$app = new \Slim\App();
-$container = $app->getContainer();
+$app = AppFactory::create();
 
 $app->get('/', function ($request, $response, $args) {
     $jsonResponse = array("message" => "Hello World from Slim Framework");
